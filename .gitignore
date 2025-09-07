@@ -1,0 +1,18 @@
+#PHP
+/vendor/
+/composer.lock
+
+
+# VSCode
+.vscode/
+
+# JetBrains (PhpStorm, PyCharm, IntelliJ, etc)
+.idea/
+
+# Outros
+*.log
+*.tmp
+*.swp
+.DS_Store
+Thumbs.db
+
