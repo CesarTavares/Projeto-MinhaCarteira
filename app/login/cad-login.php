@@ -1,5 +1,6 @@
 <?php
 //require_once("_sessao.php");
+require_once("./layout/cabecalho.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,11 +16,8 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Minha Carteira - Controle Financeiro Pessoal</h1>
-        <h1>Cadastro de Usuário</h1>
-    </div>
-
+    
+        <h1 class="titulo-2">Cadastro de Usuário</h1>
     <?php
     $selectedNivel = isset($_POST['nivel']) ? $_POST['nivel'] : '';
     $selectedStatus = isset($_POST['status']) ? $_POST['status'] : '';
@@ -59,15 +57,15 @@
                     <input type="text" name="nome" id="nome" placeholder="Nome completo" value="<?php echo isset($_GET['nome']) ? htmlspecialchars(urldecode($_GET['nome'])) : ''; ?>">
                     <div class="mensagem-erro" style="color: red;"></div>
                 </div>
-            </div><br>
+            </div>
 
             <div class="row-flex">
                 <div class="col">
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" placeholder="Melhor Email" value="<?php echo isset($_GET['email']) ? htmlspecialchars(urldecode($_GET['email'])) : ''; ?>">
+                    <input type="email" name="email" id="email" placeholder="Email" value="<?php echo isset($_GET['email']) ? htmlspecialchars(urldecode($_GET['email'])) : ''; ?>">
                     <div class="mensagem-erro" style="color: red;"></div>
                 </div>
-            </div><br><br>
+            </div>
 
             <div class="row-flex">
                 <div class="col">
@@ -75,7 +73,7 @@
                     <input type="password" name="senha1" id="senha1" placeholder="Senha com 8 digitos" value="<?php echo isset($_GET['senha1']) ? htmlspecialchars(urldecode($_GET['senha1'])) : ''; ?>">
                     <p class="mens_erro">Senhas diferentes</p>
                     <div class="mensagem-erro" style="color: red;"></div>
-                </div><br>
+                </div>
                 <div class="espaco-m"></div>
                 <div class="col">
                     <label for="senha2">Confirmação de Senha</label>
@@ -83,7 +81,7 @@
                     <p class="mens_erro">Senhas diferentes</p>
                     <div class="mensagem-erro" style="color: red;"></div>
                 </div>
-            </div><br><br>
+            </div>
             <?php
             $selectedNivel = isset($_POST['nivel']) ? $_POST['nivel'] : '';
             $selectedStatus = isset($_POST['status']) ? $_POST['status'] : '';

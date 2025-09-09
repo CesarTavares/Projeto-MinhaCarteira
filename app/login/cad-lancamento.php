@@ -1,6 +1,7 @@
 <?php
 require_once("_sessao.php");
 require_once("./_conexao/conexao.php");
+require_once("./layout/cabecalho.php");
 ?>
 
 <!DOCTYPE html>
@@ -75,14 +76,12 @@ require_once("./_conexao/conexao.php");
     }
 </style>
 
-<body>
-    <div class="container">
-        <h1>Minha Carteira - Controle Financeiro Pessoal</h1>
-        <h1>Cadastro de Lançamento de Despesa</h1>
+<body> 
+        
+        <h1 class="titulo-2">Cadastro de Lançamento de Despesa</h1>
 
-        <?php include("./_menu-telas-consultas.php");
-        ?>
-    </div>
+        <?php include("./_menu-telas-consultas.php");?>
+   
     <div id="mensagem-formulario" class="mensagem"></div>
     <div id="mensagem-sucesso" class="mensagem"></div>
     <div id="mensagem-carteira'"></div>
@@ -134,10 +133,10 @@ require_once("./_conexao/conexao.php");
                 <div class="col" style="margin-top: 15px;">
                     <label for="descricao">Descrição</label>
                     <input type="text" name="descricao" placeholder="Descrição do Lançamento" value="<?php echo isset($_GET['descricao']) ? htmlspecialchars(urldecode($_GET['descricao'])) : ''; ?>">
-                    <br>
+                   
                     <div class="mensagem-erro" style="color: red;"></div>
                 </div>
-            </div><br>
+            </div>
 
             <div class="row-flex">
                 <div class="col">
@@ -145,7 +144,7 @@ require_once("./_conexao/conexao.php");
                     <input type="text" name="valor" id="valor" placeholder="Valor do Lançamento" value="<?= isset($_GET['valor']) ? htmlspecialchars($_GET['valor']) : '' ?>">
                     <div class="mensagem-erro" style="color: red;"></div>
                 </div>
-            </div>
+            </div><br>
 
                 <!--Parcelamento de despesas-->
             <div class="row-flex">
@@ -217,7 +216,7 @@ require_once("./_conexao/conexao.php");
                 <div class="col">
                     <div class="row-flex centralizar-h">
                         <div class="col" style="margin-top: 15px;">
-                            <label for="carteira">Carteira de Pagamento</label><br>
+                            <label for="carteira">Carteira de Pagamento</label>
                             <div class="mensagem-erro" style="color: red;"></div>
                             <select name="carteira" id="carteira">
                                 <?php
@@ -275,7 +274,7 @@ require_once("./_conexao/conexao.php");
                                 <option value="Em Aberto" <?php if (isset($_GET['situacao']) && $_GET['situacao'] === 'Em Aberto') echo 'selected'; ?>>Em Aberto</option>
                                 <option value="Pago" <?php if (isset($_GET['situacao']) && $_GET['situacao'] === 'Pago') echo 'selected'; ?>>Pago</option>
                             </select>
-                            <br>
+                            
                             <div class="mensagem-erro" style="color: red;"></div>
                         </div>
                     </div>

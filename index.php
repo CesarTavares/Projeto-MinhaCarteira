@@ -7,6 +7,8 @@ session_unset();
 session_destroy();
 // Criando uma session indicando que a mensagem já foi exibida
 $_SESSION['mensagem_exibida'] = true;
+
+require_once("./app/login/layout/cabecalho.php");
 ?>
 
 <!DOCTYPE html>
@@ -74,10 +76,10 @@ $_SESSION['mensagem_exibida'] = true;
 </head>
 
 <body>
-    <div class="container">
+    <!-- <div class="container">
         <h1 class="logo-minha-carteira"><img src="./logo_minha_carteira1.png" width="" alt=""></h1>
         <h1 class="titulo-minha-carteira">Minha Carteira - Controle Financeiro Pessoal<br><br> Login de Usuário</h1>
-    </div>
+    </div> -->
 
     <?php
     $status = filter_input(INPUT_GET, 'status', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -101,7 +103,7 @@ $_SESSION['mensagem_exibida'] = true;
     ?>
 
 
-    <div class="container">
+    <div class="container-login">
         <form id="formulario" action="valida-senha.php" method="POST" enctype="multipart/form-data">
             <div class="row-flex centralizar-h">
                 <div class="col-3" style="margin-top: 28px; text-align: center;">
@@ -133,12 +135,7 @@ $_SESSION['mensagem_exibida'] = true;
     </div>
 
     <footer>
-        <h5>&copy; 2024 Minha Carteira. Todos os direitos reservados.</h5>
-        <h5>
-            <a href="#">César Ricardo Tavares</a> |
-            <a href="#">Diego Ap. Violpa Pascoal</a> |
-            <a href="#">Contato: sac@minhacarteira.com</a>
-        </h5>
+        <h5>&copy; 2024 Minha Carteira. Todos os direitos reservados.</h5>        
     </footer>
 
     <script>

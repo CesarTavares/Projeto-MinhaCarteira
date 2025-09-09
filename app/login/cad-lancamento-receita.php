@@ -1,7 +1,8 @@
 <?php
 require_once("_sessao.php");
 
-require_once("./_conexao/conexao.php")
+require_once("./_conexao/conexao.php");
+require_once("./layout/cabecalho.php");
 ?>
 
 <!DOCTYPE html>
@@ -74,13 +75,11 @@ require_once("./_conexao/conexao.php")
 </style>
 
 
-<body>
-    <div class="container">
-        <h1>Minha Carteira - Controle Financeiro Pessoal</h1>
-        <h1>Cadastro Lançamento de Receita</h1>
-        <?php include("./_menu-telas-consultas.php");
-        ?>
-    </div>
+<body>    
+        <h1 class="titulo-2">Cadastro Lançamento de Receita</h1>
+
+        <?php include("./_menu-telas-consultas.php");?>
+    
     <div id="mensagem-formulario"></div>
     <div id="mensagem-formulario-categoria"></div>
     <div id="mensagem-formulario-tipo"></div>
@@ -242,7 +241,7 @@ require_once("./_conexao/conexao.php")
                                 }
                                 ?>
                             </select>
-                            <br><br>
+                            <br>
                             <button type="button" class="link-as-button" style="padding: 2px;" id="linkCadastroCarteira" onclick="exibirPopupCarteira()">+ Nova Carteira</button>
                             <br>
                         </div>
@@ -260,7 +259,7 @@ require_once("./_conexao/conexao.php")
                                 <option value="Em Aberto" <?php if (isset($_GET['situacao']) && $_GET['situacao'] === 'Em Aberto') echo 'selected'; ?>>Em Aberto</option>
                                 <option value="Recebido" <?php if (isset($_GET['situacao']) && $_GET['situacao'] === 'Recebido') echo 'selected'; ?>>Recebido</option>
                             </select>
-                            <br>
+                            
                             <div class="mensagem-erro" style="color: red;"></div>
                         </div>
                     </div>

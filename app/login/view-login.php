@@ -1,5 +1,6 @@
 <?php
 require("./_sessao.php");
+require_once("./layout/cabecalho.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -52,14 +53,12 @@ require("./_sessao.php");
     </style>
 </head>
 
-<body>
-    <div class="container">
-        <h1>Minha Carteira - Controle Financeiro Pessoal</h1>        
-        <h1>Consulta de Usuários</h1>
+<body>         
+        <h1 class="titulo-2">Consulta de Usuários</h1>
         <br>
         <?php include("./_menu-telas-consultas.php"); ?>
         <br>
-    </div>
+    
 
             <?php
                 $status = filter_input(INPUT_GET, 'status', FILTER_SANITIZE_SPECIAL_CHARS);
@@ -143,7 +142,6 @@ require("./_sessao.php");
     <div class="centralizar-v">
         <table id="tabela-usuarios">
             <thead>
-
                 <tr class="usuario">                    
                     <th>Nome</th>
                     <th>Email</th>
@@ -152,7 +150,6 @@ require("./_sessao.php");
                     <th width="90">Atualizar</th>
                     <th width="90">Excluir</th>
                 </tr>
-
             </thead>
         <tbody>
 

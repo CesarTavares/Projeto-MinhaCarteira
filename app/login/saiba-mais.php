@@ -1,5 +1,6 @@
 <?php
 require("./_sessao.php");
+require_once("../login/layout/cabecalho.php");
 
 ?>
 
@@ -17,11 +18,8 @@ require("./_sessao.php");
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="logo-minha-carteira"><img src="../../login/logo_minha_carteira1.png width="" alt=""></h1>
-        <h1 class=" titulo-minha-carteira">Minha Carteira - Controle Financeiro Pessoal</h1>
-        <h1>Perguntas Frequentes</h1>
-    </div>
+        <h1 class="titulo-2">Perguntas Frequentes</h1>
+    
     <?php include("../login/_menu-cadastros-pop-up.php"); ?>
     <br><br>
 
@@ -42,13 +40,7 @@ require("./_sessao.php");
     </div><br><br>
 
     <footer>
-        <h5>&copy; 2024 Minha Carteira. Todos os direitos reservados.</h5>
-        <h5>
-            <a href="#">César Ricardo Tavares</a> |
-            <a href="#">Diego Ap. Viola Pascoal</a> |
-            <a href="#">Contato: sac@minhacarteira.com</a>
-        </h5>
+        <h5>&copy; 2024 Minha Carteira. Todos os direitos reservados.</h5>        
     </footer>
 </body>
-
 </html>

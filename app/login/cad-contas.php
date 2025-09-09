@@ -1,5 +1,6 @@
 <?php
 require_once("./_sessao.php");
+require_once("./layout/cabecalho.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,12 +16,10 @@ require_once("./_sessao.php");
 </head>
 
 <body>
-    <div class="container">
-        <h1>Minha Carteira - Controle Financeiro Pessoal</h1>
-        <h1>Cadastro de Carteira</h1>
+    <h1 class="titulo-2">Cadastro de Carteira</h1>
+    <div class="container">        
+        
         <?php include("./_menu-telas-consultas.php");
-
-
 
         // Verificar se há valores passados via GET para preencher os campos
         $descricaoCarteira = isset($_GET['descricaoCarteira']) ? htmlspecialchars(urldecode($_GET['descricaoCarteira'])) : '';
@@ -111,7 +110,7 @@ require_once("./_sessao.php");
                                 $codigo = $_SESSION['codigo'];
 
                                 // Conecte-se ao banco de dados
-                                $conn = mysqli_connect("localhost", "root", "", "minhacarteira");
+                                $conn = mysqli_connect("localhost", "root", "1234", "minhacarteira");
 
                                 // Verifique se a conexão foi estabelecida com sucesso
                                 if ($conn) {
@@ -141,40 +140,40 @@ require_once("./_sessao.php");
                     </div>
                 </div>
             </div>
-    </div>
+        
 
-    <div class="containercad" style="margin-top: 35px;">
-        <form onsubmit="return false;">
-            <div class="voltar" style="background-color: dimgray">
-                <input type="submit" id="voltar" style="background-color: dimgray; border: 1px solid dimgray; font-size: 18px" value="Fechar" formaction="../../tela-inicial.php" onclick="fecharFormulario()">
-            </div>
+                <div class="containercad" style="margin-top: 35px;">
+                    <form onsubmit="return false;">
+                        <div class="voltar" style="background-color: dimgray">
+                            <input type="submit" id="voltar" style="background-color: dimgray; border: 1px solid dimgray; font-size: 18px" value="Fechar" formaction="../../tela-inicial.php" onclick="fecharFormulario()">
+                        </div>
+                    </form>
+                    <div class="espaco-m"></div>
+                    <input type="submit" id="submit" value="G R A V A R" onclick="return verificarCampos()">
+                </div>
         </form>
-        <div class="espaco-m"></div>
-        <input type="submit" id="submit" value="G R A V A R" onclick="return verificarCampos()">
-    </div>
-    </form>
 
     <!-- Pop-up de cadastro Tipo de Carteira -->
-    <div id="popup" class="popup" style="display: none;">
-        <div class="popup-content">
-            <h2>Novo Tipo de Carteira</h2>
-            <div class="centralizar-h">
-                <form id="form-carteira" action="./cad-tipo-contasbd-popup-cad-principal.php" method="POST" enctype="multipart/form-data">
-                    <label for="descricao">Descrição</label>
-                    <input type="text" name="descricao" id="descricao" placeholder="Insira a Descrição do Tipo da Carteira">
-                    <div class="mensagem-erro" style="color: red;"></div>
-                    <div class="containercad" style="margin-top: 35px;">
-                        <div class="voltar" style="background-color: dimgray">
-                            <input type="button" style="background-color: dimgray; border: 1px solid dimgray; font-size: 16px; padding: 25px 50px; padding-right:95px; margin-top: 9px; border-radius:15px; color:white" value="Fechar" onclick="fecharPopup()">
+        <div id="popup" class="popup" style="display: none;">
+            <div class="popup-content">
+                <h2>Novo Tipo de Carteira</h2>
+                 <div class="centralizar-h">
+                    <form id="form-carteira" action="./cad-tipo-contasbd-popup-cad-principal.php" method="POST" enctype="multipart/form-data">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" name="descricao" id="descricao" placeholder="Insira a Descrição do Tipo da Carteira">
+                        <div class="mensagem-erro" style="color: red;"></div>
+                        <div class="containercad" style="margin-top: 35px;">
+                            <div class="voltar" style="background-color: dimgray">
+                                <input type="button" style="background-color: dimgray; border: 1px solid dimgray; font-size: 16px; padding: 25px 50px; padding-right:95px; margin-top: 9px; border-radius:15px; color:white" value="Fechar" onclick="fecharPopup()">
+                            </div>
+                            <div class="espaco-m"></div>
+                            <button type="button" id="submitTipoCarteira" onclick="gravar()">G R A V A R</button>
                         </div>
-                        <div class="espaco-m"></div>
-                        <button type="button" id="submitTipoCarteira" onclick="gravar()">G R A V A R</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const params = new URLSearchParams(window.location.search);

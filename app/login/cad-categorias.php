@@ -1,6 +1,7 @@
 <?php
 require_once("./_sessao.php");
 require_once("./_conexao/conexao.php");
+require_once("./layout/cabecalho.php");
 ?>
 
 <!DOCTYPE html>
@@ -19,11 +20,11 @@ require_once("./_conexao/conexao.php");
 </head>
 
 <body>
-    <div class="container">
-        <h1>Minha Carteira - Controle Financeiro Pessoal</h1>
-        <h1>Cadastro de Categoria</h1>
+            
+        <h1 class="titulo-2">Cadastro de Categoria</h1>
+        
         <?php include("./_menu-telas-consultas.php"); ?>
-    </div><br>
+    
 
     <div class="centralizar-v">
         <form id="formulario" action="./cad-categoriasbd.php" method="POST" enctype="multipart/form-data">

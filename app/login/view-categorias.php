@@ -1,5 +1,6 @@
 <?php
 require_once("./_sessao.php");
+require_once("./layout/cabecalho.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,9 +15,7 @@ require_once("./_sessao.php");
 </head>
 
 <body>
-    <div class="container">
-        <h1>Minha Carteira - Controle Finaceiro Digital</h1>
-        <h1>Consulta de Categorias</h1>
+        <h1 class="titulo-2">Consulta de Categorias</h1>
         
         <?php include("./_menu-telas-consultas.php");
 
@@ -39,7 +38,7 @@ require_once("./_sessao.php");
         }
 
         ?>
-    </div>
+    
     <br>
     <div class="containercad">
         <div class="row-flex">
