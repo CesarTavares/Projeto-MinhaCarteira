@@ -1,5 +1,6 @@
 <?php
 require_once("./_sessao.php");
+require_once("./layout/cabecalho.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -14,13 +15,11 @@ require_once("./_sessao.php");
     <script src="./js/verifica_cadastros.js"></script>
 </head>
 
-<body>
-    <div class="container">
-        <h1>Minha Carteira - Controle Financeiro Pessoal</h1>
-        <h1> Cadastro de Tipo de Carteira</h1>
-        <?php include("./_menu-telas-consultas.php") ?>
-    </div><br>
+<body>   
+        <h1 class="titulo-2"> Cadastro de Tipo de Carteira</h1>
 
+        <?php include("./_menu-telas-consultas.php") ?>
+        
     <div class="centralizar-v">
     <form id="formulario" action="./cad-tipo-contasbd.php" method="POST" enctype="multipart/form-data">
             <div class="row-flex">

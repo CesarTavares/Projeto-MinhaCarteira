@@ -3,6 +3,7 @@ require("./app/login/_sessao.php");
 require_once("./app/login/funcoes_gerais.php");
 require_once("./app/login/_conexao/conexao.php");
 require_once("./app/login/ver_saldo.php");
+require_once("./app/login/layout/cabecalho.php");
 ?>
 
 <!DOCTYPE html>
@@ -18,15 +19,9 @@ require_once("./app/login/ver_saldo.php");
 
 </head>
 
-<body>
-    <div class="container">        
-            <img src="./logo_minha_carteira1.png" alt="Logo Minha Carteira" class="Logo">
-           <h1 class="titulo">Minha Carteira - Controle Financeiro Pessoal </h1>
-           
-    </div>
-    
+<body>    
     <?php include("./app/login/_menu-pagina-inicial.php"); ?>
-    <br>
+   
 
     <!-- <div class="centralizar-select">
         <label for="anoSelect">Selecione o Ano:</label>
@@ -63,9 +58,8 @@ require_once("./app/login/ver_saldo.php");
             ?>
         </select>
     </div> -->
-
-    </div>
-    <div class="centralizar-h">
+    
+    <div class="centralizar-r">
         <p>
             <?php if (isset($_SESSION['nome'])): ?> 
 
@@ -432,12 +426,7 @@ require_once("./app/login/ver_saldo.php");
     </div>
 
     <footer>
-        <h5>&copy; 2024 Minha Carteira. Todos os direitos reservados.</h5>
-        <h5>
-            <a href="#">César Ricardo Tavares</a> |
-            <a href="#">Diego Ap. Viola Pascoal</a> |
-            <a href="#">Contato: sac@minhacarteira.com</a>
-        </h5>
+        <h5>&copy; 2024 Minha Carteira. Todos os direitos reservados.</h5>        
     </footer>
 
     <script>

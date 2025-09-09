@@ -1,5 +1,6 @@
 <?php
     require_once("./_sessao.php");
+    require_once("./layout/cabecalho.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,9 +13,7 @@
     <link rel="shortcut icon" href="../../logo_minha_carteira_ICO.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="container">
-        <h1>Minha Carteira - Controle Financeiro Pessoal</h1>
-        <h1>Consulta Tipo de Carteira</h1>
+        <h1 class="titulo-2">Consulta Tipo de Carteira</h1>
         
             <?php include("./_menu-telas-consultas.php"); 
             
@@ -35,7 +34,7 @@
                 echo '<div id="altNever">Nenhuma Alteração realizada pelo Usuário!</div>';
             }
             ?> 
-    </div>
+    
     <br>
     <div class="containercad">
         <div class="row-flex">

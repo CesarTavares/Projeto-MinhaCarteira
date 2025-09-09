@@ -1,5 +1,6 @@
 <?php
 require("./_sessao.php");
+require_once("./layout/cabecalho.php");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,12 +17,10 @@ require("./_sessao.php");
 </head>
 
 
-<body>     
-    <div class="container">
-        <h1>Minha Carteira - Controle Fianceiro Pessoal</h1>
-        <h1>Consulta de Lançamentos</h1>
+<body> 
+        <h1 class="titulo-2">Consulta de Lançamentos</h1>
         <?php include("./_menu-telas-consultas.php"); ?>
-    </div>
+   
     <?php
     $status = filter_input(INPUT_GET, 'status', FILTER_SANITIZE_SPECIAL_CHARS);
     if (isset($status) && ($status == "sucesso")) {

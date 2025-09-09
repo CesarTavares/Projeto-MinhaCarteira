@@ -2,6 +2,7 @@
 require("./_sessao.php");
 include_once("./_conexao/conexao.php");
 require_once("./funcoes_gerais.php");
+require_once("./layout/cabecalho.php");
 
 //Receber os dados do formulario
 $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -22,10 +23,8 @@ $data_final = isset($dados['data_final']) ? $dados['data_final']: "";
 </head>
 
 <body>
-    <div class="container">
-        <h1>Minha Carteira - Controle Financeiro Pessoal</h1>
-        <h1>Relatório de Lançamentos de Receitas por Carteiras</h1>
-    </div>
+        <h1 class="titulo-2">Relatório de Lançamentos de Receitas por Carteiras</h1>
+    
 
     <div class="containercad" style="margin-top: 0px;">
             <form method="POST" action="">                

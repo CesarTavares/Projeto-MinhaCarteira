@@ -14,7 +14,7 @@ body {
 
 .logo {
     height: 5px;
-    width: auto;
+    width: 50%;
 }
 
 h1 {
@@ -40,13 +40,24 @@ p {
 .container {
     display: flex;
     align-items: center;
-    padding: 0 50px;
-    border-radius: 5px;
-    /* width: 90%; */
-    /* margin-left: 0%;
-    margin-right: 0%;
-    padding: 0px;    
-    padding: 0%; */
+    padding: 0 20px;    
+}
+
+.container-login {
+    display: flex;
+    align-items: center;
+    padding: 30px;  
+    justify-content: center;
+    flex-direction: column;
+    /* margin-top: 50px;
+    margin-bottom: 50px; */
+}
+
+.container .titulo {
+    flex: 1;
+    text-align: center;
+    margin: 10px, 10px;
+    font-size: 40px;    
 }
 
 .containercad {
@@ -146,8 +157,8 @@ footer a {
 }
 
 .col-3 {
-    width: 30%;
-    float: left;
+    width: 300px;
+    text-align: center;
 }
 
 .col-4 {
@@ -239,6 +250,11 @@ footer a {
 }
 
 .centralizar-h {
+    /* display: flex; */
+    justify-content: center;
+}
+
+.centralizar-r {
     display: flex;
     justify-content: center;
 }
@@ -929,7 +945,7 @@ footer a {
 
 .usuario {
     margin-right: auto;
-    padding-left: 450px;
+    padding-left: 150px;
 }
 
 .sair {
@@ -1380,9 +1396,16 @@ a {
 }
 .titulo {
     flex: 1;
-    margin: 0;
+    margin: 2px;
     font-size: 24px;
-    text-align: center;
+    text-align: center;    
+}
+
+.titulo-2 {
+    flex: 1;
+    margin: 15px 450px 25px 450px;
+    font-size: 24px;
+    text-align: center;    
 }
 
 .titulo-minha-carteira {
@@ -1416,7 +1439,10 @@ a {
     }
 
     .row-flex {
-        flex-direction: column;
+        /* flex-direction: column; */
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
 }
