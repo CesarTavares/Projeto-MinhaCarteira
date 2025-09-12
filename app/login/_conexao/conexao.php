@@ -4,8 +4,8 @@
 // Evita recriar a conexão se já existir
 if (!isset($conexao) || !($conexao instanceof PDO)) {
     $host = 'localhost';
-    $db   = 'minhacarteira';
-    $user = 'root';
+    $db   = 'db_minhacarteira';
+    $user = 'db_user_app';
     $pass = '1234';
     $charset = 'utf8mb4';
 
