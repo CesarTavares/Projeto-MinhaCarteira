@@ -11,6 +11,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nivel = filter_input(INPUT_POST, "nivel", FILTER_SANITIZE_SPECIAL_CHARS);
         $status = filter_input(INPUT_POST, "status", FILTER_SANITIZE_SPECIAL_CHARS);
 
+        echo "<pre>";
+        echo "Teste de depuração:\n";
+        echo $nome;  // Debugging line to check the value of $nome
+        echo $email; // Debugging line to check the value of $email
+        echo "</pre>";
+        exit();
+
         require_once("./_conexao/conexao.php");
 
         // Verificar se já existe um usuário com o mesmo nome ou e-mail
@@ -21,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 `nome` = :nome OR
                 `email` = :email
         ");
+
 
         $consultaExistente->bindParam(':nome', $nome);
         $consultaExistente->bindParam(':email', $email);
