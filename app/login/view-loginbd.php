@@ -6,15 +6,10 @@
     try{
         // comando SQL para buscar todos os registros da tabela
         $sql = "SELECT * FROM usuarios";
-
-        // executa o comando SQL no banco de dados
-        $dadosSelecionados = $conexao->query($sql);
-
-        // prepara os dados para serem vizualisados
-        $dados = $dadosSelecionados->fetchAll();
-
-        // calcula o total de registros lidos da tabela
-        $totalRegistros = $dadosSelecionados->rowCount();
+        $stmt = $conexao->prepare($sql);
+        $stmt->execute();
+        $dados = $stmt->fetchAll();
+        $totalRegistros = $stmt->rowCount();
 
     }catch(PDOException $erro) {
         echo("Código dp erro.: ".$erro->getCode());
