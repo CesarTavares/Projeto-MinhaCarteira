@@ -62,27 +62,19 @@
                             //Obtém o código da sessão do usuário
                              $codigo = $_SESSION['codigo'];
 
-                            //conecta ao banco de dados
-                             $conn = mysqli_connect("localhost", "root", "", "minhacarteira");
-                           
-                            //Verifica se a conexão foi estabelecida com sucesso
-                            if ($conn) {
-                                // Execute a consulta para buscar as categorias do usuário
-                                $query = "SELECT codigo, descricao FROM categorias WHERE codigo_usuario = '$codigo'";
-                                $result = mysqli_query($conn, $query);
-
-                                //Verifique se há categorias retornadas
-                                if (mysqli_num_rows($result) > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        $codigoCategoria = $row["codigo"];
-                                        $nomeCategoria = $row["descricao"];
-                                        //Verifique se a categoria atual é igual à categoria do registro sendo editado
-                                        $selecionado = ($codigoCategoria == $resultado['categoria']) ? 'selected' : '';
-                                        echo "<option value=\"$codigoCategoria\" $selecionado>$nomeCategoria</option>";
-                                    }
+                            try {
+                                require_once("./_conexao/conexao.php");
+                                $stmt = $conexao->prepare("SELECT codigo, descricao FROM categorias WHERE codigo_usuario = :usuario ORDER BY descricao ASC");
+                                $stmt->bindValue(':usuario', $codigo, PDO::PARAM_INT);
+                                $stmt->execute();
+                                while ($row = $stmt->fetch()) {
+                                    $codigoCategoria = (int)$row['codigo'];
+                                    $nomeCategoria = htmlspecialchars($row['descricao']);
+                                    $selecionado = ($codigoCategoria == $resultado['categoria']) ? 'selected' : '';
+                                    echo "<option value=\"{$codigoCategoria}\" {$selecionado}>{$nomeCategoria}</option>";
                                 }
-                                // Feche a conexão com o banco de dados
-                                mysqli_close($conn);
+                            } catch (PDOException $e) {
+                                echo '<option value="">Erro ao carregar categorias</option>';
                             }
                             ?>
                         </select>
@@ -99,28 +91,20 @@
                                 // Obtém o código da sessão do usuário
                                 $codigo = $_SESSION['codigo'];
 
-                                // Conecte-se ao banco de dados
-                                $conn = mysqli_connect("localhost", "root", "", "minhacarteira");
-
-                                // Verifique se a conexão foi estabelecida com sucesso
-                                if ($conn) {
-                                    // Execute a consulta para buscar as categorias do usuário
-                                $query = "SELECT codigo, descricao FROM carteiras WHERE codigo_usuario = '$codigo'";
-                                $result = mysqli_query($conn, $query);
-
-                                //Verifique se há categorias retornadas
-                                if (mysqli_num_rows($result) > 0) {
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                        $codigoCarteira = $row["codigo"];
-                                        $nomeCarteira = $row["descricao"];
-                                        //Verifique se a categoria atual é igual à categoria do registro sendo editado
+                                try {
+                                    require_once("./_conexao/conexao.php");
+                                    $stmt = $conexao->prepare("SELECT codigo, descricao FROM carteiras WHERE codigo_usuario = :usuario ORDER BY descricao ASC");
+                                    $stmt->bindValue(':usuario', $codigo, PDO::PARAM_INT);
+                                    $stmt->execute();
+                                    while ($row = $stmt->fetch()) {
+                                        $codigoCarteira = (int)$row['codigo'];
+                                        $nomeCarteira = htmlspecialchars($row['descricao']);
                                         $selecionado = ($codigoCarteira == $resultado['carteira']) ? 'selected' : '';
-                                        echo "<option value=\"$codigoCarteira\" $selecionado>$nomeCarteira</option>";
+                                        echo "<option value=\"{$codigoCarteira}\" {$selecionado}>{$nomeCarteira}</option>";
                                     }
+                                } catch (PDOException $e) {
+                                    echo '<option value="">Erro ao carregar carteiras</option>';
                                 }
-                                // Feche a conexão com o banco de dados
-                                mysqli_close($conn);
-                            }
                             ?>
                         </select>
                     </div>

@@ -109,27 +109,18 @@ require_once("./layout/cabecalho.php");
                                 // Obtém o código da sessão do usuário
                                 $codigo = $_SESSION['codigo'];
 
-                                // Conecte-se ao banco de dados
-                                $conn = mysqli_connect("localhost", "root", "1234", "minhacarteira");
-
-                                // Verifique se a conexão foi estabelecida com sucesso
-                                if ($conn) {
-                                    // Execute a consulta para buscar as categorias do usuário
-                                    $query = "SELECT descricao FROM tipos_carteiras WHERE codigo_usuario = '$codigo'";
-                                    $result = mysqli_query($conn, $query);
-
-                                    // Verifique se há categorias retornadas
-                                    if (mysqli_num_rows($result) > 0) {
-                                        // Itere sobre as categorias e crie as opções do campo de seleção
-                                        while ($row = mysqli_fetch_assoc($result)) {
-                                            $nomeCarteira = $row["descricao"];
-                                            // Verificar se esta opção deve ser selecionada
-                                            $selected = ($nomeCarteira == $tipo) ? 'selected' : '';
-                                            echo "<option value=\"$nomeCarteira\" $selected>$nomeCarteira</option>";
-                                        }
+                                try {
+                                    require_once("./_conexao/conexao.php");
+                                    $stmt = $conexao->prepare("SELECT descricao FROM tipos_carteiras WHERE codigo_usuario = :usuario ORDER BY descricao ASC");
+                                    $stmt->bindValue(':usuario', $codigo, PDO::PARAM_INT);
+                                    $stmt->execute();
+                                    while ($row = $stmt->fetch()) {
+                                        $nomeCarteira = htmlspecialchars($row['descricao']);
+                                        $selected = ($nomeCarteira == $tipo) ? 'selected' : '';
+                                        echo "<option value=\"{$nomeCarteira}\" {$selected}>{$nomeCarteira}</option>";
                                     }
-                                    // Feche a conexão com o banco de dados
-                                    mysqli_close($conn);
+                                } catch (PDOException $e) {
+                                    echo '<option value="">Erro ao carregar tipos de carteiras</option>';
                                 }
                                 ?>
                             </select>

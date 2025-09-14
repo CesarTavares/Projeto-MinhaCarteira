@@ -24,14 +24,13 @@ require_once("./layout/cabecalho.php");
     }
 
     .mensagem-erroo {
-        color: red;
         background-color: rgb(235, 124, 50);
         color: rgb(248, 248, 248);
         border: 1px solid rgb(235, 252, 6);
         width: 500px;
         margin: 0 auto;
         margin-top: -59px;
-        margin-bottom: 250PX;
+        margin-bottom: 250px;
         height: 110px;
         font-size: 29px;
         border-radius: 7px;
@@ -42,11 +41,8 @@ require_once("./layout/cabecalho.php");
         top: 10;
         left: 0;
         right: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 999;
         display: none;
+        z-index: 999;
     }
 
     .mensagem-sucesso {
@@ -54,7 +50,7 @@ require_once("./layout/cabecalho.php");
         margin: 0 auto;
         color: rgb(248, 248, 248);
         margin-top: -59px;
-        margin-bottom: 250PX;
+        margin-bottom: 250px;
         height: 110px;
         font-size: 29px;
         border-radius: 7px;
@@ -65,12 +61,9 @@ require_once("./layout/cabecalho.php");
         top: 10;
         left: 0;
         right: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 999;
         display: none;
         background-color: #4CAF50;
+        z-index: 999;
     }
 </style>
 
@@ -319,27 +312,17 @@ require_once("./layout/cabecalho.php");
                     <?php
                     // Obtém o código da sessão do usuário
                     $codigo = $_SESSION['codigo'];
-
-                    // Conecte-se ao banco de dados
-                    $conn = mysqli_connect("localhost", "root", "", "minhacarteira");
-
-                    // Verifique se a conexão foi estabelecida com sucesso
-                    if ($conn) {
-                        // Execute a consulta para buscar as categorias do usuário
-                        $query = "SELECT descricao FROM tipos_carteiras WHERE codigo_usuario = '$codigo'";
-                        $result = mysqli_query($conn, $query);
-
-                        // Verifique se há categorias retornadas
-                        if (mysqli_num_rows($result) > 0) {
-                            // Itere sobre as categorias e crie as opções do campo de seleção
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $nomeCarteira = $row["descricao"];
-                                echo "<option value=\"$nomeCarteira\">$nomeCarteira</option>";
-                            }
+                    try {
+                        require_once("./_conexao/conexao.php");
+                        $stmt = $conexao->prepare("SELECT descricao FROM tipos_carteiras WHERE codigo_usuario = :usuario ORDER BY descricao ASC");
+                        $stmt->bindValue(':usuario', $codigo, PDO::PARAM_INT);
+                        $stmt->execute();
+                        while ($row = $stmt->fetch()) {
+                            $nomeCarteira = htmlspecialchars($row['descricao']);
+                            echo "<option value=\"{$nomeCarteira}\">{$nomeCarteira}</option>";
                         }
-
-                        // Feche a conexão com o banco de dados
-                        mysqli_close($conn);
+                    } catch (PDOException $e) {
+                        echo '<option value="">Erro ao carregar tipos de carteiras</option>';
                     }
                     ?>
                 </select>
