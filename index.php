@@ -8,7 +8,7 @@ session_destroy();
 // Criando uma session indicando que a mensagem já foi exibida
 $_SESSION['mensagem_exibida'] = true;
 
-require_once("./app/login/layout/cabecalho.php");
+include __DIR__ . '/app/login/layout/cabecalho.php';
 ?>
 
 <!DOCTYPE html>
