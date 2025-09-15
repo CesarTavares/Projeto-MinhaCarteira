@@ -1,3 +1,9 @@
+<?php
+    //incluir o arquivo de configuração
+    require_once __DIR__ . '/../../../config.php';
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -7,7 +13,7 @@
 </head>
 <body>
     <div class="container">        
-            <img src="app/login/imagens/logo_carteira1.png" alt="Logo Minha Carteira" class="Logo">
+            <img src="<?php echo BASE_URL; ?>app/login/imagens/logo_carteira1.png" alt="Logo Minha Carteira" class="Logo">
            <h1 class="titulo">Minha Carteira - Controle Financeiro Pessoal </h1>
            
     </div>
