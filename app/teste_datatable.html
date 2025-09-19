@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabela Financeira</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    table.dataTable thead th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    table.dataTable tbody td {
+      background-color: white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Tabela de Gastos Financeiros</h2>
+  <table id="tabelaFinanceira" class="display">
+    <thead>
+      <tr>
+        <th>Data de Vencimento</th>
+        <th>Data de Pagamento</th>
+        <th>Descrição</th>
+        <th>Valor (R$)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>2025-09-01</td><td>2025-09-02</td><td>Aluguel</td><td>1200.00</td></tr>
+      <tr><td>2025-09-10</td><td>2025-09-11</td><td>Internet</td><td>120.50</td></tr>
+      <tr><td>2025-09-05</td><td>2025-09-06</td><td>Energia</td><td>210.75</td></tr>
+      <tr><td>2025-09-07</td><td>2025-09-08</td><td>Telefone</td><td>89.90</td></tr>
+    </tbody>
+  </table>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#tabelaFinanceira').DataTable({
+        language: {
+          url: "//cdn.datatables.net/plug-ins/1.13.6/i18n/pt-BR.json"
+        }
+      });
+    });
+  </script>
+</body>
+</html>

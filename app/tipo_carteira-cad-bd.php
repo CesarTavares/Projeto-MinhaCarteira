@@ -1,11 +1,15 @@
 <?php
-require_once("_sessao.php");
+require_once("../vendor/autoload.php");
+require_once("login/_sessao.php");
+
+use App\Database\Connection;
+
+$conexao = Connection::get();
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descricao = filter_input(INPUT_POST, "descricao", FILTER_SANITIZE_SPECIAL_CHARS);
     $codigo = $_SESSION['codigo'];
-
-    require_once("./_conexao/conexao.php");
 
     try {
         // Verificar se já existe uma carteira com a mesma descrição para o mesmo usuário
@@ -26,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($resultadoExistente['total'] > 0) {
             // Carteira igual já existe, redirecionar para a página "cad-tipo-contas.php" com os valores dos campos na URL
             $descricao = urlencode($descricao);
-            header('Location: ./cad-tipo-contas.php?erro=lancamento-igual&descricao=' . $descricao);
+            header('Location: ./tipo_carteira.php?erro=lancamento-igual&descricao=' . $descricao);
             exit();
         }
 
@@ -47,10 +51,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ));
 
         if ($comandoSQL->rowCount() > 0) {
-            header("Location: ./view-tipo-contas.php?status=sucesso");
+            header("Location: ./tipo_carteira.php");
             exit();
         } else {
-            header("Location: ./view-contas.php?status=insucesso");
+            header("Location: ./tipo_carteira.php?status=insucesso");
             exit();
         }
     } catch (PDOException $erro) {

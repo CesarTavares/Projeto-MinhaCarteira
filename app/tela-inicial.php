@@ -1,9 +1,13 @@
 <?php
-require("./app/login/_sessao.php");
-require_once("./app/login/funcoes_gerais.php");
-require_once("./app/login/_conexao/conexao.php");
-require_once("./app/login/ver_saldo.php");
-require_once("./app/login/layout/cabecalho.php");
+require_once dirname(__DIR__, 2) . "/vendor/autoload.php";
+require_once("_sessao.php");
+require_once("funcoes_gerais.php");
+require_once("ver_saldo.php");
+
+
+use App\Database\Connection;
+
+$conexao = Connection::get();
 ?>
 
 <!DOCTYPE html>
@@ -14,24 +18,22 @@ require_once("./app/login/layout/cabecalho.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Carteira - Tela Inicial</title>
-    <link rel="stylesheet" href="./app/login/css/estilo.css">
-    <link rel="shortcut icon" href="logo_minha_carteira_ICO.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/estilo.css">
+    <link rel="shortcut icon" href="./imagens/logo_minha_carteira_ICO.ico" type="image/x-icon">
 
 </head>
 
 <body>    
-    <?php include("./app/login/_menu-pagina-inicial.php"); ?>
-   
-
+    
+    
     <!-- <div class="centralizar-select">
         <label for="anoSelect">Selecione o Ano:</label>
         <select id="anoSelect" onchange="filtrarPorAno()">
             <option value="todos">Todos</option>
             <?php
-            require_once("../minhacarteira/app/login/_conexao/conexao.php");
 
-            // Consulta SQL para obter os anos de lançamentos, excluindo o ano atual
-            $sql = "SELECT DISTINCT ano
+// Consulta SQL para obter os anos de lançamentos, excluindo o ano atual
+$sql = "SELECT DISTINCT ano
         FROM (
             SELECT YEAR(data_pagamento) AS ano
             FROM lancamentos_despesas
@@ -47,7 +49,7 @@ require_once("./app/login/layout/cabecalho.php");
                 $stmt = $conexao->prepare($sql);
                 $stmt->execute();
                 $anos_lancamentos = $stmt->fetchAll(PDO::FETCH_COLUMN);
-
+                
                 // Itera sobre os anos para criar as opções do select
                 foreach ($anos_lancamentos as $ano) {
                     echo '<option value="' . $ano . '">' . $ano . '</option>';
@@ -58,7 +60,9 @@ require_once("./app/login/layout/cabecalho.php");
             ?>
         </select>
     </div> -->
-    
+    <?php require_once("./layout/cabecalho.php"); ?>
+    <?php include("_menu-pagina-inicial.php"); ?>
+
     <div class="centralizar-r">
         <p>
             <?php if (isset($_SESSION['nome'])): ?> 

@@ -16,29 +16,29 @@
             <div class="menu">
                 <li id="menu-cadastros">Cadastros</li>
                 <ul id="cadastros" class="submenu" style="display: none;">
-                    <li><a href="./app/login/cad-login.php">Cadastrar Novo Usuário</a></li>
-                    <li><a href="./app/login/cad-contas.php">Cadastrar Nova Carteira</a></li>
-                    <li><a href="./app/login/cad-tipo-contas.php">Cadastrar Novo Tipo de Carteira</a></li>
-                    <li><a href="./app/login/cad-categorias.php">Cadastrar Nova Categoria</a></li>
+                    <li><a href="./cad-login.php">Cadastrar Novo Usuário</a></li>
+                    <li><a href="./cad-contas.php">Cadastrar Nova Carteira</a></li>
+                    <li><a href="./cad-tipo-conteiras.php">Cadastrar Novo Tipo de Carteira</a></li>
+                    <li><a href="./cad-categorias.php">Cadastrar Nova Categoria</a></li>
                 </ul>
             </div>
 
             <div class="menu">
                 <li id="menu-lancamentos">Lançamentos</li>
                 <ul id="lancamentos" class="submenu" style="display: none;">
-                    <li><a href="./app/login/cad-lancamento.php">Despesas</a></li>
-                    <li><a href="./app/login/cad-lancamento-receita.php">Receitas</a></li>
+                    <li><a href="./login/cad-lancamento.php">Despesas</a></li>
+                    <li><a href="./cad-lancamento-receita.php">Receitas</a></li>
                 </ul>
             </div>
 
             <div class="menu">
                 <li id="menu-consultas">Consultas</li>
                 <ul id="consultas" class="submenu" style="display: none;">
-                    <li><a href="./app/login/view-login.php">Consulta de Usuários</a></li>
-                    <li><a href="./app/login/view-categorias.php">Consulta de Categorias</a></li>
-                    <li><a href="./app/login/view-tipo-contas.php">Consulta Tipo de Carteiras</a></li>
-                    <li><a href="./app/login/view-contas.php">Consulta de Carteiras</a></li>
-                    <li><a href="./app/login/view-lancamento.php">Consulta de Lançamentos</a></li>
+                    <li><a href="./view-login.php">Consulta de Usuários</a></li>
+                    <li><a href="./view-categorias.php">Consulta de Categorias</a></li>
+                    <li><a href="./view-tipo-contas.php">Consulta Tipo de Carteiras</a></li>
+                    <li><a href="./view-contas.php">Consulta de Carteiras</a></li>
+                    <li><a href="./view-lancamento.php">Consulta de Lançamentos</a></li>
 
                 </ul>
             </div>
@@ -49,15 +49,15 @@
                 <ul id="relatorios" class="submenu" style="display: none;">
                     <li id="menu-relatorios-despesas">Relatórios de Despesas</li>
                     <ul id="relatorios-despesas" class="submenu" style="display: none;">
-                        <li><a href="./app/login/report-lancamentos.php">Relatório de Lançamentos de Despesas por Datas</a></li>
-                        <li><a href="./app/login/report-lancamentos-categorias.php">Relatório de Lançamentos por Categorias</a></li>
-                        <li><a href="./app/login/report-lancamentos-carteiras.php">Relatório de Lançamentos por Carteiras</a></li>
+                        <li><a href="./report-lancamentos.php">Relatório de Lançamentos de Despesas por Datas</a></li>
+                        <li><a href="./report-lancamentos-categorias.php">Relatório de Lançamentos por Categorias</a></li>
+                        <li><a href="./report-lancamentos-carteiras.php">Relatório de Lançamentos por Carteiras</a></li>
                     </ul>
                     <li id="menu-relatorios-receitas">Relatórios de Receitas</li>
                     <ul id="relatorios-receitas" class="submenu" style="display: none;">
-                        <li><a href="./app/login/report-lancamentos-receitas.php">Relatório de Lançamentos de Receitas por Datas</a></li>
-                        <li><a href="./app/login/report-lancamentos-receitas-categorias.php">Relatório de Lançamentos de Receitas por Categorias</a></li>
-                        <li><a href="./app/login/report-lancamentos-receitas-carteiras.php">Relatório de Lançamentos de Receitas por Carteiras</a></li>
+                        <li><a href="./report-lancamentos-receitas.php">Relatório de Lançamentos de Receitas por Datas</a></li>
+                        <li><a href="./report-lancamentos-receitas-categorias.php">Relatório de Lançamentos de Receitas por Categorias</a></li>
+                        <li><a href="./report-lancamentos-receitas-carteiras.php">Relatório de Lançamentos de Receitas por Carteiras</a></li>
                     </ul>
                 </ul>              
             </div>
@@ -65,7 +65,7 @@
             <div class="menu">
                 <li id="menu-ajuda">Ajuda</li>
                 <ul id="ajuda" class="submenu" style="display: none;">
-                    <li><a href="./app/login/saiba-mais.php">Perguntas Frequentes</a></li>
+                    <li><a href="./saiba-mais.php">Perguntas Frequentes</a></li>
                 </ul>
             </div>
 
@@ -78,27 +78,27 @@
             <div class="menu">
                 <li id="menu-cadastros">Cadastros</li>
                 <ul id="cadastros" class="submenu" style="display: none;">
-                    <li><a href="./app/login/cad-contas.php">Cadastrar Nova Carteira</a></li>
-                    <li><a href="./app/login/cad-tipo-contas.php">Cadastrar Novo Tipo de Carteira</a></li>
-                    <li><a href="./app/login/cad-categorias.php">Cadastrar Nova Categoria</a></li>
+                    <li><a href="./cad-contas.php">Cadastrar Nova Carteira</a></li>
+                    <li><a href="./tipo_carteira.php">Cadastrar Novo Tipo de Carteira</a></li>
+                    <li><a href="./cad-categorias.php">Cadastrar Nova Categoria</a></li>
                 </ul>
             </div>
 
             <div class="menu">
                 <li id="menu-lancamentos">Lançamentos</li>
                 <ul id="lancamentos" class="submenu" style="display: none;">
-                    <li><a href="./app/login/cad-lancamento.php">Despesas</a></li>
-                    <li><a href="./app/login/cad-lancamento-receita.php">Receitas</a></li>
+                    <li><a href="./login/cad-lancamento.php">Despesas</a></li>
+                    <li><a href="./cad-lancamento-receita.php">Receitas</a></li>
                 </ul>
             </div>
 
             <div class="menu">
                 <li id="menu-consultas">Consultas</li>
                 <ul id="consultas" class="submenu" style="display: none;">
-                    <li><a href="./app/login/view-categorias.php">Consulta de Categorias</a></li>
-                    <li><a href="./app/login/view-tipo-contas.php">Consulta Tipo de Carteiras</a></li>
-                    <li><a href="./app/login/view-contas.php">Consulta de Carteiras</a></li>
-                    <li><a href="./app/login/view-lancamento.php">Consulta de Lançamentos</a></li>
+                    <li><a href="./view-categorias.php">Consulta de Categorias</a></li>
+                    <li><a href="./view-tipo-contas.php">Consulta Tipo de Carteiras</a></li>
+                    <li><a href="./view-contas.php">Consulta de Carteiras</a></li>
+                    <li><a href="./view-lancamento.php">Consulta de Lançamentos</a></li>
 
                 </ul>
             </div>
@@ -106,18 +106,18 @@
             <div class="menu">
                 <li id="menu-relatorios">Relatórios</li>
                 <ul id="relatorios" class="submenu" style="display: none;">                   
-                    <li><a href="./app/login/report-lancamentos.php">Relatório de Lançamentos por Datas</a></li>
-                    <li><a href="./app/login/report-lancamentos-categorias.php">Relatório de Lançamentos por Categorias</a></li>
-                    <li><a href="./app/login/report-lancamentos-carteiras.php">Relatório de Lançamentos por Carteiras</a></li>                    
+                    <li><a href="./report-lancamentos.php">Relatório de Lançamentos por Datas</a></li>
+                    <li><a href="./report-lancamentos-categorias.php">Relatório de Lançamentos por Categorias</a></li>
+                    <li><a href="./report-lancamentos-carteiras.php">Relatório de Lançamentos por Carteiras</a></li>                    
                 </ul>
             </div>
 
             <div class="menu">
                 <li id="menu-ajuda">Ajuda</li>
                 <ul id="ajuda" class="submenu" style="display: none;">
-                    <li><a href="./app/login/view-lancamento.php">Perguntas Frequentes</a></li>
-                    <li><a href="./app/login/view-lancamento.php">Saiba Mais</a></li>
-                    <li><a href="./app/login/cad-lancamento.php">Configuração</a></li>
+                    <li><a href="./view-lancamento.php">Perguntas Frequentes</a></li>
+                    <li><a href="./view-lancamento.php">Saiba Mais</a></li>
+                    <li><a href="./cad-lancamento.php">Configuração</a></li>
                 </ul>
             </div>
 
