@@ -1,7 +1,8 @@
 <?php
+$baseDir = dirname(__FILE__, 2) ."";
 require_once("_sessao.php");
-require_once("./_conexao/conexao.php");
-require_once("./layout/cabecalho.php");
+require_once($baseDir."/_conexao/conexao.php");
+require_once($baseDir."/login/layout/cabecalho.php");
 ?>
 
 <!DOCTYPE html>

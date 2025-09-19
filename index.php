@@ -8,64 +8,67 @@ session_destroy();
 // Criando uma session indicando que a mensagem já foi exibida
 $_SESSION['mensagem_exibida'] = true;
 
-include __DIR__ . '/app/login/layout/cabecalho.php';
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minha Carteria - Login de Usuário</title>
+        <link rel="stylesheet" href="./app/login/css/estilo.css">
+        <link rel="shortcut icon" href="./logo_minha_carteira_ICO.ico" type="image/x-icon">
+        <script src="./app/login/js/verifica_cadastros.js"></script>
+        <style>
+            input {
+                margin: 25px 0px;
+            }
+            
+            .login {
+                width: 500px;
+                margin: 0 auto;
+                margin-top: 60px;
+            }
+            
+            .esconder {
+                display: none;
+            }
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Carteria - Login de Usuário</title>
-    <link rel="stylesheet" href="./app/login/css/estilo.css">
-    <link rel="shortcut icon" href="./logo_minha_carteira_ICO.ico" type="image/x-icon">
-    <script src="./app/login/js/verifica_cadastros.js"></script>
-    <style>
-        input {
-            margin: 25px 0px;
-        }
-
-        .login {
-            width: 500px;
-            margin: 0 auto;
-            margin-top: 60px;
-        }
-
-        .esconder {
-            display: none;
-        }
-
-        .alert {
-            width: 500px;
-            margin: 0 auto;
-            margin-top: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 26px;
-            border-radius: 5px;
-            border: 1px solid red;
-        }
-
-        .sucesso {
-            background-color: lightgreen;
-            color: green;
-            border: 1px solid green;
-        }
-
-        .erro {
-            background-color: lightpink;
-            color: red;
-            border: 1px solid red;
-        }
-
-        .link-as-button {
-            appearance: button;
-            font-size: 18px;
-            padding: 20px 15px;
+            .alert {
+                width: 500px;
+                margin: 0 auto;
+                margin-top: 60px;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 26px;
+                border-radius: 5px;
+                border: 1px solid red;
+            }
+            
+            .sucesso {
+                background-color: lightgreen;
+                color: green;
+                border: 1px solid green;
+            }
+            
+            .erro {
+                background-color: lightpink;
+                color: red;
+                border: 1px solid red;
+            }
+            
+            .link-as-button {
+                appearance: button;
+                font-size: 18px;
+                padding: 20px 15px;
             background-color: #007bff;
             border: none;
             color: white;
@@ -76,11 +79,12 @@ include __DIR__ . '/app/login/layout/cabecalho.php';
 </head>
 
 <body>
+    <?php include('./app/login/layout/cabecalho.php'); ?>
     <!-- <div class="container">
         <h1 class="logo-minha-carteira"><img src="./logo_minha_carteira1.png" width="" alt=""></h1>
         <h1 class="titulo-minha-carteira">Minha Carteira - Controle Financeiro Pessoal<br><br> Login de Usuário</h1>
     </div> -->
-
+    
     <?php
     $status = filter_input(INPUT_GET, 'status', FILTER_SANITIZE_SPECIAL_CHARS);
     if (isset($status) && ($status == "sucesso")) {
@@ -104,7 +108,7 @@ include __DIR__ . '/app/login/layout/cabecalho.php';
 
 
     <div class="container-login">
-        <form id="formulario" action="valida-senha.php" method="POST" enctype="multipart/form-data">
+        <form id="formulario" action="app/valida-senha.php" method="POST" enctype="multipart/form-data">
             <div class="row-flex centralizar-h">
                 <div class="col-3" style="margin-top: 28px; text-align: center;">
                     <label for="usuario" style="font-size: 23px;">E-mail</label>
